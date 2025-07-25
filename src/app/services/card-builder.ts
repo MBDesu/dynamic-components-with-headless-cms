@@ -38,9 +38,7 @@ export class CardBuilder implements Builder {
     const needsTitles = [ 'title', 'subtitle' ]
       .some((key: string) => !!context.entry.fields[key]);
     const titles = needsTitles ? this.createCardTitles(context) : [];
-    console.log('titles', titles);
     const elements = titles.map((title: ComponentRef<any>) => [title.location.nativeElement.firstChild]);
-    console.log('elements', elements);
     if (!!titles) {
       return createComponent(CardHeader, {
         environmentInjector: this.appRef.injector,
